@@ -1,0 +1,41 @@
+.base {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #3f979b;
+}
+
+.card {
+  background-color: #205e61;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  width: 30%;
+
+  padding: 10px;
+}
+#description {
+  color: cadetblue;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  color: cadetblue;
+}
+hr {
+  color: cadetblue;
+}
+
+.bottom {
+  font-size: x-large;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(111, 186, 188, 0.831);
+}
+#image {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 20px;
+}

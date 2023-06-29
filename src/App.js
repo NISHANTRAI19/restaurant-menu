@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Menu from './Components/Menu/Menu';
+import Navbar from './Components/Navbar/Navbar';
+import menuAPI from './API/menuAPI'
+const uniq = [...new Set(menuAPI.map((curElement) => {
+  return (curElement.category);
+}))]
+
 
 function App() {
+  const [tempAPI, settempAPI] = useState(menuAPI)
+
+  const filterMenu = (category) => {
+    console.log(category)
+    const filtered = menuAPI.filter((curElement) => {
+
+      if (category === 'All')
+        return menuAPI
+
+      else return (curElement.category === category)
+
+    })
+
+    settempAPI(filtered)
+    console.log(filtered)
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      <Navbar filterMenu={filterMenu} uniq={uniq} />
+      <Menu tempAPI={tempAPI} />
+    </>
   );
 }
 
